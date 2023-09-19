@@ -4,6 +4,7 @@ import routes from "../routes";
 import responseTime from "response-time"
 import { restResponseTmeHistogram } from "./metrics";
 
+
 function createServer(){
     const app= express();
     
@@ -20,8 +21,6 @@ function createServer(){
             },time*1000)
         }
     }))
-
-    
 
     routes(app)
 

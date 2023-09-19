@@ -56,3 +56,9 @@ npm i prom-client response-time
 npm i @types/response-time -D <br/>
 
 utils -> metric -> create new app 
+
+## swagger 
+npm i swagger-jsdoc swagger-ui-express <br/>
+npm i @types/swagger-jsdoc @types/swagger-ui-express -D 
+utils -> swagger <br/> 
+tsconfig.json -> "resolveJsonModule":true 
