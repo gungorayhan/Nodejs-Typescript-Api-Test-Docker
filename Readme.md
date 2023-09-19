@@ -59,6 +59,6 @@ utils -> metric -> create new app
 
 ## swagger 
 npm i swagger-jsdoc swagger-ui-express <br/>
-npm i @types/swagger-jsdoc @types/swagger-ui-express -D 
+npm i @types/swagger-jsdoc @types/swagger-ui-express -D <br/>
 utils -> swagger <br/> 
 tsconfig.json -> "resolveJsonModule":true 
