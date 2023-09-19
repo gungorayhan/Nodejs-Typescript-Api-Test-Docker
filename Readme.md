@@ -35,3 +35,16 @@ user.service
 
 ## schema
 user.schema
+
+
+## test 
+npm i supertest jest ts-jest @types/jest @types/supertest -D <br/>
+
+jest.config.js <br/>
+
+__test__ folder <br/>
+
+package.json --> "test":"jest"
+
+npm run test and npm run --watchAll <cr/> 
+npm run test --detectOpenHandles

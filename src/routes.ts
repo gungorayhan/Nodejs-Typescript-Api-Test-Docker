@@ -12,7 +12,7 @@ import { craeteSessionSchema } from "./schema/session.schema"
 import deserializeUser from "./middleware/deserializeUser"
 import requireUser from "./middleware/requireUser"
 import { createProductSchema, deleteProducSchema, getProdcutSchema, updateProductSchema } from "./schema/product.schema"
-import { createProductHandler, getProductHandler, updateProductHandler } from "./controllers/product.controller"
+import { createProductHandler, deleteProductHandler, getProductHandler, updateProductHandler } from "./controllers/product.controller"
 
 
 function routes(app: Express) {
@@ -26,20 +26,20 @@ function routes(app: Express) {
     app.get("/api/sessions", requireUser, getUserSessionsHandler)
     app.delete("/api/sessions", requireUser, deleteSessionHandler)
 
-    app.post("/api/product", [requireUser, validateResource(createProductSchema)],
+    app.post("/api/products", [requireUser, validateResource(createProductSchema)],
         createProductHandler
     )
 
-    app.put("/api/product/:productId", [requireUser, validateResource(updateProductSchema)],
+    app.put("/api/products/:productId", [requireUser, validateResource(updateProductSchema)],
         updateProductHandler
     )
 
-    app.get("/api/prodcut/:productId", validateResource(getProdcutSchema),
+    app.get("/api/products/:productId", validateResource(getProdcutSchema),
         getProductHandler
     )
 
-    app.delete("/api/product/:productId",[requireUser,validateResource(deleteProducSchema)],
-        deleteSessionHandler
+    app.delete("/api/products/:productId",[requireUser,validateResource(deleteProducSchema)],
+        deleteProductHandler
     )
 }
 

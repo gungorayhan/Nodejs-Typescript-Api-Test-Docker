@@ -8,7 +8,7 @@ export async function createProductHandler(
     const body = req.body
     const product = await createProduct({ ...body, user: userId })
 
-    return res.send(product);
+    return res.status(200).send(product);
 }
 
 export async function updateProductHandler(
@@ -54,6 +54,7 @@ export async function deleteProductHandler(req: Request<DeleteProductInput['para
     const productId = req.params.productId
 
     const product = await findProduct({ productId })
+    
     if (!product) return res.sendStatus(404)
 
     if (String(product.user) !== userId) return res.sendStatus(403)
