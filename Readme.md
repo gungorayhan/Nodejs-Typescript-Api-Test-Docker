@@ -46,5 +46,13 @@ __test__ folder <br/>
 
 package.json --> "test":"jest"
 
-npm run test and npm run --watchAll <cr/> 
+npm run test and npm run --watchAll <br/> 
 npm run test --detectOpenHandles
+
+## api performance with prometheus
+
+npm i prom-client response-time
+
+npm i @types/response-time -D <br/>
+
+utils -> metric -> create new app 
