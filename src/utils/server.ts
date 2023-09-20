@@ -3,7 +3,7 @@ import deserializeUser from "../middleware/deserializeUser";
 import routes from "../routes";
 import responseTime from "response-time"
 import { restResponseTmeHistogram } from "./metrics";
-
+import config from "config"
 
 function createServer(){
     const app= express();

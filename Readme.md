@@ -61,4 +61,34 @@ utils -> metric -> create new app
 npm i swagger-jsdoc swagger-ui-express <br/>
 npm i @types/swagger-jsdoc @types/swagger-ui-express -D <br/>
 utils -> swagger <br/> 
-tsconfig.json -> "resolveJsonModule":true 
+tsconfig.json -> "resolveJsonModule":true <br/>
+
+
+
+
+## env 
+npm i docenv
+
+## docker 
+.dockerignore <br/>
+
+Dockerfile <br/>
+
+docker build . -t rest-api<br/>
+docker pull mongo<br/>
+ 
+## docker --link  --> mongoose.connect("mongodb://mongo-alias:27017/rest-api-typescript") --- use alias name 
+docker run ---name mongo-server -p 27017:27017 -d mongo<br/> 
+docker run --link mongo-server:mongo-alias -p 1337:1337 -d todo-app<br/>
+
+## docker --network mongoose.connect("mongodb://mongo-server:27017/todos") -- use container name
+docker network create --drive bridge --submit 182.18.0.1/24 --gateway 182.18.0.1 rest-api-network <br/>
+docker run --name mongo-server --net rest-api-network -d mongo<br/>
+docker run --net rest-api-network -p 1337:1337 rest-api <br/>
+
+## docker-compose.yml
+docker-compose.yml <br/>
+docker-compose build<br/>
+docker-compose up <br/>
+
+
