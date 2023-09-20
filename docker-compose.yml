@@ -1,0 +1,41 @@
+version: "3"
+networks:
+  node-webapp-network:
+    name: node-webapp-network
+    ipam:
+      config:
+        - subnet: 198.162.0.0/24
+        - gateway: 198.162.0.1
+services:
+  rest-api:
+    container_name: rest-api-app
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - "1337:1337"
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    environment:
+      WAIT_HOSTS: mongodb:27017
+    networks:
+      - node-webapp-network
+  mongodb:
+    container_name: mongodb-rest-api
+    image: mongo:6.0
+    volumes:
+      - mongodb_data_container:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=app_user
+      - MONGO_INITDB_ROOT_PASSWORD=app_password
+      - MONGO_INITDB_DATABASE=admin
+    networks:
+      - node-webapp-network
+volumes:
+  - mongodb_data_container:
